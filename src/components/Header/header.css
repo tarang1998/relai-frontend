@@ -1,0 +1,31 @@
+.header .header_home {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.header .header_link {
+  font-weight: 500;
+  font-size: 16px !important;
+  margin-right: 12px !important;
+  line-height: 40px;
+}
+
+.header .header_link_active {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin-right: 12px !important;
+  line-height: 40px;
+}
+
+.header .header_link:hover {
+  font-weight: 500 !important;
+  color: #919391 !important;
+}
+
+.header .nav-link {
+  padding: 0px !important;
+  text-align: left;
+}
