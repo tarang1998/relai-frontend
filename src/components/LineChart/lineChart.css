@@ -1,0 +1,51 @@
+.line-chart-title {
+    font-size: large;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* .line-chart-plot{
+    margin-top: 20px !important;
+    padding-top: 0px !important; 
+} */
+
+
+.model-selection-title {
+    font-size: medium;
+    font-weight: 500;
+    margin-top: 20px;
+
+
+}
+
+.model-selection-checkbox {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+.model-selection-checkbox-input {
+    margin-right: 5px;
+}
+
+
+.model-selection-checkbox-dot{
+    border-radius: 50%;
+    height: 20px !important;
+    width: 20px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 5px;
+
+}
+
+
+.smoothing-factor {
+    margin-top: 50px;
+}
+
+.smoothing-factor-title {
+    font-size: medium;
+    font-weight: 500;
+}

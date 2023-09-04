@@ -7,7 +7,7 @@ import "./header.css";
 
 
 
-const Header = (props) => {
+const Header = () => {
 
 
   const location = useLocation();
@@ -37,7 +37,7 @@ const Header = (props) => {
             <Nav.Link
               as={NavLink}
               to="/problem1"
-              className={pathName == "/problem1" ? "header_link_active" : "header_link"}
+              className={pathName === "/problem1" ? "header_link_active" : "header_link"}
             >
               Problem 1
             </Nav.Link>
@@ -46,7 +46,7 @@ const Header = (props) => {
               as={NavLink}
               to="/problem2"
               className={
-                pathName == "/problem2" ? "header_link_active" : "header_link"
+                pathName === "/problem2" ? "header_link_active" : "header_link"
               }
 
             >
