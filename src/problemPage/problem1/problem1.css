@@ -1,5 +1,12 @@
-.line-chart{
+.line-chart {
     margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+
+.bar-chart {
+    margin-top: 70px;
     margin-bottom: 20px;
     margin-left: 20px;
 }
