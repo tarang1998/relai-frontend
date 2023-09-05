@@ -1,0 +1,38 @@
+.image-selection {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.image-selection-title {
+    font-size: large;
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.image-selection-container{
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+.image-container {
+    cursor: pointer;
+    position: relative;
+    transition: border 0.2s ease;
+    border: 1px solid black;
+
+}
+
+.image-container-selected {
+    border: 1px solid #007bff;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+
+}
