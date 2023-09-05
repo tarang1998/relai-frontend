@@ -1,30 +1,33 @@
 import React ,{ useState }from "react";
 import ImageSelection from "../../components/imageGallery/imageSelection";
-import Metric from "../../components/metric/metric";
+import CalculatedMetric from "../../components/metric/metric";
+import './problem2.css';
 const problem2Data = require("../../data/problem2Data.json");
 
 
 const Problem2 = () => {
 
-    const [metric, setMetric] = useState(0);
+    const [calculatedMetric, setCalculatedMetric] = useState(0);
 
-    const handleMetricUpdate = (newMetric) => {
-        setMetric(newMetric);
+    const handleMetricOnImageSelection = (value) => {
+        setCalculatedMetric(value);
     };
 
 
     return (
 
 
-        <div className='problem2Page' >
+        <div className='problem2Page'>
 
             <ImageSelection
                 className="image-selection"
                 data={problem2Data}
-                onMetricUpdate={handleMetricUpdate}
+                onImageSelection={handleMetricOnImageSelection}
             />
 
-            <Metric metric={metric} />
+            <CalculatedMetric 
+            className = "calculated-metric"
+            value={calculatedMetric} />
 
 
         </div>
