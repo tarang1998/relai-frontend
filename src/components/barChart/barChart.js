@@ -47,7 +47,7 @@ const BarChart = ({ modelNames, confusion_matrix }) => {
 
                 <Grid item xs={12} >
 
-                    <Fade left duration={2000}>
+                    <Fade right duration={2000}>
                         <Plot className='bar-chart-plot'
 
                             data={[

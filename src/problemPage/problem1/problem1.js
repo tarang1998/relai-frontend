@@ -2,6 +2,7 @@ import React from "react";
 import LineChart from "../../components/LineChart/lineChart";
 import BarChart from "../../components/barChart/barChart";
 import "./problem1.css";
+import RadarChart from "../../components/RadarChart/radarChart";
 const problem1Data = require("../../data/problem1Data.json");
 
 
@@ -31,8 +32,10 @@ const Problem1 = () => {
             />
 
 
-
-
+            <RadarChart className = "radar-chart"
+                modelNames= {modelNames}
+                radarData = {problem1Data["radar_data"]}
+            />
 
         </div>
 
