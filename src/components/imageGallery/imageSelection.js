@@ -83,6 +83,10 @@ const ImageSelection = ({ onImageSelection, data }) => {
             nonSelectedImageAverage = nonSelectedImageScores / nonSelectedImageCount
         }
 
+        console.log(`Selected Image Average : ${selectedImageAverage}`)
+
+        console.log(`Non selected Image Average : ${nonSelectedImageAverage}`)
+
 
         const metric = selectedImageAverage - nonSelectedImageAverage;
         onImageSelection(metric);

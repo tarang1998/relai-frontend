@@ -5,21 +5,18 @@ import { Grid } from '@material-ui/core';
 import "./radarChart.css";
 
 
-const RadarChart = ({ radarData, modelNames }) => {
+const RadarChart = ({ data, modelNames, windowDimension }) => {
 
 
-    const metricLabels = ["Metric #1", "Metric #2", "Metric #3", "Metric #4", "Metric #5"];
+    const metrics = ["Metric #1", "Metric #2", "Metric #3", "Metric #4", "Metric #5"];
 
-    // Transpose the radarData to have metrics as rows and models as columns
-    const transposedData = radarData[0].map((col, i) => radarData.map(row => row[i]));
-
-    const data = modelNames.map((modelName, modelIndex) => {
+    const radarData = data.map((modelData,index) => {
         return {
             type: 'scatterpolar',
-            r: transposedData[modelIndex],
-            theta: metricLabels,
+            r: modelData,
+            theta: metrics,
             fill: 'toself',
-            name: modelName,
+            name: modelNames[index],
         };
     });
 
@@ -33,7 +30,7 @@ const RadarChart = ({ radarData, modelNames }) => {
 
                     <Fade duration={2000}>
                         <div className="radar-chart-title">
-                            Radar Data
+                            Radar Data for 5 Models on 5 Metrics
                         </div>
 
                     </Fade>
@@ -44,15 +41,25 @@ const RadarChart = ({ radarData, modelNames }) => {
 
                     <Fade left duration={2000}>
                         <Plot
-                            data={data}
+                            data={radarData}
                             layout={{
                                 polar: {
                                     radialaxis: {
+                                        ticksuffix: '',
+                                        showline: true,
+                                        angle: 0,
                                         visible: true,
-                                        range: [0, 1], // Adjust the range as needed
+                                        range: [0, 1],
                                     },
                                 },
+                                height: windowDimension.width > 1200 ? 800 : windowDimension.width > 1000? 600 : 500, 
+                                width: windowDimension.width > 1200 ? 1000 : windowDimension.width > 1000? 800 : windowDimension.width > 800? 600 : windowDimension.width > 600 ? 500 : 400,
                                 showlegend: true,
+                                legend: {
+                                    orientation: 'v',
+
+                                  },
+                                //   title: 'Radar Chart',
                             }}
                         />
                     </Fade>

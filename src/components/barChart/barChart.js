@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 import "./barChart.css";
 
 
-const BarChart = ({ modelNames, confusion_matrix }) => {
+const BarChart = ({ modelNames, confusion_matrix ,windowDimension}) => {
 
 
     var class1Accuracies = []
@@ -71,6 +71,8 @@ const BarChart = ({ modelNames, confusion_matrix }) => {
 
                             layout={{
                                 barmode: "group",
+                                height: windowDimension.width > 1200 ?600 : windowDimension.width > 1000? 600 : 500,
+                                width: windowDimension.width > 1200 ? 1000 : windowDimension.width > 1000 ? 800 : windowDimension.width > 800 ? 600 : windowDimension.width > 600 ? 500 : 400,
                                 title: "",
                                 xaxis: {
                                     title: "Model",
