@@ -20,8 +20,9 @@
 }
 
 .model-selection-checkbox {
-    display: block;
+    /* display: block; */
     margin-bottom: 10px;
+    padding-right: 40px;
 
 }
 

@@ -45,6 +45,7 @@ const Problem1 = () => {
             <LineChart className="line-chart"
                 modelNames={modelNames}
                 modelNameColors={modelNameColors}
+                windowDimension = {useWindowDimensions()}
                 losses={problem1Data["losses"]}
             />
 
