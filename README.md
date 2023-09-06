@@ -13,4 +13,4 @@ https://github.com/priyathamkat/frontend-questions
 - ![Problem 1.1 : Line Chart depicting the loss values of 5 models](./public/images/projectImages/LineChart.png)
 - ![Problem 1.2 : Bar Chart representing the class wise accuracies of 5 models](./public/images/projectImages/BarChart.png)
 - ![Problem 1.3 : Radar Chart for 5 models on 5 metrics](./public/images/projectImages//RadarChart.png)
-- ![Problem 2 : Image Selection and Metrics Calculation]()
+- ![Problem 2 : Image Selection and Metrics Calculation](./public/images/projectImages/ImageSelection.png)
