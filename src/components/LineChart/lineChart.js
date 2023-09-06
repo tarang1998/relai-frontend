@@ -7,10 +7,46 @@ import "./lineChart.css";
 
 
 
-const LineChart = ({ modelNames, modelNameColors, losses , windowDimension}) => {
+const LineChart = ({ modelNames, modelNameColors, losses, windowDimension }) => {
 
     const [smoothingFactor, setSmoothingFactor] = useState(1);
     const [selectedModels, setSelectedModels] = useState(Array(5).fill(true));
+
+    const smoothingValues = [
+        {
+            value: 0.1,
+            label: '0.1',
+        },
+        {
+            value: 0.2,
+            label: '0.2',
+        }, {
+            value: 0.3,
+            label: '0.3',
+        }, {
+            value: 0.4,
+            label: '0.4',
+        }, {
+            value: 0.5,
+            label: '0.5',
+        }, {
+            value: 0.6,
+            label: '0.6',
+        }, {
+            value: 0.7,
+            label: '0.7',
+        }, {
+            value: 0.8,
+            label: '0.8',
+        }, {
+            value: 0.9,
+            label: '0.9',
+        }, {
+            value: 1,
+            label: '1',
+        },
+    ];
+
 
 
 
@@ -24,7 +60,7 @@ const LineChart = ({ modelNames, modelNameColors, losses , windowDimension}) => 
         const smoothedData = [];
         smoothedData.push(lossData[0])
         for (let j = 1; j < lossData.length; j++) {
-            const smoothedValue = factor * lossData[j] + (1 - factor)*smoothedData[j-1]
+            const smoothedValue = factor * lossData[j] + (1 - factor) * smoothedData[j - 1]
             smoothedData.push(smoothedValue);
         }
         return smoothedData;
@@ -81,7 +117,7 @@ const LineChart = ({ modelNames, modelNameColors, losses , windowDimension}) => 
 
                 </Grid>
 
-                <Grid item xs={12}  md={10} lg={10} xl={10}>
+                <Grid item xs={12} md={10} lg={10} xl={10}>
 
                     <Fade left duration={2000}>
                         <Plot className="line-chart-plot"
@@ -98,9 +134,9 @@ const LineChart = ({ modelNames, modelNameColors, losses , windowDimension}) => 
                                     t: 20,
                                     pad: 4
                                 },
-                            
+
                                 height: windowDimension.width > 1200 ? 500 : windowDimension.width > 1000 ? 600 : 500,
-                                width: windowDimension.width > 1200 ? 1000 : windowDimension.width > 1000 ? 800 : windowDimension.width > 900 ? 800 : windowDimension.width > 800 ? 700 : windowDimension.width > 700 ? 600 : windowDimension.width > 600? 550 : windowDimension.width > 500 ? 450 : 350
+                                width: windowDimension.width > 1200 ? 1000 : windowDimension.width > 1000 ? 800 : windowDimension.width > 900 ? 800 : windowDimension.width > 800 ? 700 : windowDimension.width > 700 ? 600 : windowDimension.width > 600 ? 550 : windowDimension.width > 500 ? 450 : 350
 
 
 
@@ -149,6 +185,7 @@ const LineChart = ({ modelNames, modelNameColors, losses , windowDimension}) => 
                                 min={0}
                                 max={1}
                                 step={0.1}
+                                marks={smoothingValues}
                                 onChange={(event, newValue) => {
                                     console.log(`Smoothing factor : ${newValue}`)
                                     setSmoothingFactor(newValue)
