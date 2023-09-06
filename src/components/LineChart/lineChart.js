@@ -14,34 +14,39 @@ const LineChart = ({ modelNames, modelNameColors, losses, windowDimension }) => 
 
     const smoothingValues = [
         {
-            value: 0.1,
-            label: '0.1',
+            value: 0,
+            label: '0',
         },
+        // {
+        //     value: 0.1,
+        //     label: '0.1',
+        // },
+        // {
+        //     value: 0.2,
+        //     label: '0.2',
+        // }, {
+        //     value: 0.3,
+        //     label: '0.3',
+        // }, {
+        //     value: 0.4,
+        //     label: '0.4',
+        // }, {
+        //     value: 0.5,
+        //     label: '0.5',
+        // }, {
+        //     value: 0.6,
+        //     label: '0.6',
+        // }, {
+        //     value: 0.7,
+        //     label: '0.7',
+        // }, {
+        //     value: 0.8,
+        //     label: '0.8',
+        // }, {
+        //     value: 0.9,
+        //     label: '0.9',
+        // }, 
         {
-            value: 0.2,
-            label: '0.2',
-        }, {
-            value: 0.3,
-            label: '0.3',
-        }, {
-            value: 0.4,
-            label: '0.4',
-        }, {
-            value: 0.5,
-            label: '0.5',
-        }, {
-            value: 0.6,
-            label: '0.6',
-        }, {
-            value: 0.7,
-            label: '0.7',
-        }, {
-            value: 0.8,
-            label: '0.8',
-        }, {
-            value: 0.9,
-            label: '0.9',
-        }, {
             value: 1,
             label: '1',
         },
@@ -124,8 +129,14 @@ const LineChart = ({ modelNames, modelNameColors, losses, windowDimension }) => 
                             data={getData()}
                             layout={{
                                 title: '',
-                                xaxis: { title: 'Steps' },
-                                yaxis: { title: 'Loss' },
+                                xaxis: { 
+                                    title: 'Steps',
+                                    range: [0,5100]
+                                },
+                                yaxis: { 
+                                    title: 'Loss' ,
+                                    range : [-0.4, 1.2]
+                                },
                                 showlegend: false,
                                 margin: {
                                     l: 50,
@@ -175,7 +186,7 @@ const LineChart = ({ modelNames, modelNameColors, losses, windowDimension }) => 
 
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={3}>
 
                     <Fade right duration={1500}>
                         <div className="smoothing-factor">
@@ -185,7 +196,10 @@ const LineChart = ({ modelNames, modelNameColors, losses, windowDimension }) => 
                                 min={0}
                                 max={1}
                                 step={0.1}
+                                // marks
                                 marks={smoothingValues}
+                                valueLabelDisplay="auto"
+                                aria-label="Default"
                                 onChange={(event, newValue) => {
                                     console.log(`Smoothing factor : ${newValue}`)
                                     setSmoothingFactor(newValue)
