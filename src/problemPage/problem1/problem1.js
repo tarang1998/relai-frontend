@@ -52,6 +52,7 @@ const Problem1 = () => {
 
             <BarChart className = "bar-chart"
                 modelNames={modelNames}
+                modelColors = {modelNameColors}
                 windowDimension = {useWindowDimensions()}
                 confusion_matrix = {problem1Data["confusion_matrices"]}
             />
