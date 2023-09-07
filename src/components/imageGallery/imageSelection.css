@@ -41,13 +41,17 @@
 }
 
 
+.image-selection-container2 {
+    margin-top: 30px !important;
+}
+
 
 
 .image-selection-container {
     margin-top: 30px !important;
     display: grid !important;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 7px;
     /* max-width: 800px; */
     margin: 0 auto;
     /* padding-left: 100px !important;
@@ -56,7 +60,6 @@
 }
 
 
-  
 /* .image-selection-container .ReactGridGallery div {
     justify-content: center;
     align-content: flex-start;
@@ -75,14 +78,35 @@
 }
 
 .image-container-selected {
-    border: 7px solid #007bff;
+    border: 5px solid #007bff;
 }
 
 .image-selection-container img {
     max-width: 100%;
     height: auto;
-  }
+}
+
+
+@media (max-width: 960px) {
+    .image-selection-container {
+        gap: 2px;
+    }
+
+    .image-container-selected {
+        border: 3px solid #007bff;
+    }
+
+}
 
 
 
+@media (max-width: 720px) {
+    .image-selection-container {
+        gap: 1px;
+    }
 
+    .image-container-selected {
+        border: 2px solid #007bff;
+    }
+
+}

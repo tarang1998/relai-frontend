@@ -18,39 +18,39 @@ const ImageSelection = ({ data, windowDimension }) => {
 
     const [selectedImages, setSelectedImages] = useState([]);
 
-    // const getImages = () => {
+    const getImages = () => {
 
-    //     var imageData = []
+        var imageData = []
 
-    //     for (const [key, value] of Object.entries(data)) {
+        for (const [key, value] of Object.entries(data)) {
 
-    //         imageData.push({
-    //             width: 200,
-    //             height: 200,
+            imageData.push({
+                width: 200,
+                height: 200,
 
-    //             isSelected: selectedImages.includes(key),
-    //             src: `images/cats_vs_dogs/${key}`,
-    //             alt: `${key}-${value}`
-    //         })
-
-
-    //     }
-
-    //     return imageData
-
-    // }
-
-    // const handleImageSelection = (index, image) => {
-
-    //     const imageName = image.src.split("/").pop()
-    //     if (selectedImages.includes(imageName)) {
-    //         setSelectedImages(selectedImages.filter((selected) => selected !== imageName));
-    //     } else {
-    //         setSelectedImages([...selectedImages, imageName]);
-    //     }
+                isSelected: selectedImages.includes(key),
+                src: `images/cats_vs_dogs/${key}`,
+                alt: `${key}-${value}`
+            })
 
 
-    // }
+        }
+
+        return imageData
+
+    }
+
+    const handleImageSelection = (index, image) => {
+
+        const imageName = image.src.split("/").pop()
+        if (selectedImages.includes(imageName)) {
+            setSelectedImages(selectedImages.filter((selected) => selected !== imageName));
+        } else {
+            setSelectedImages([...selectedImages, imageName]);
+        }
+
+
+    }
 
     const handleImageSelection2 = (imageName) => {
         if (selectedImages.includes(imageName)) {
@@ -151,12 +151,12 @@ const ImageSelection = ({ data, windowDimension }) => {
 
 
 
-            {/* <div className="image-selection-container">
+            {/* <div className="image-selection-container2">
                 <Gallery
                     images={getImages()}
                     onSelect={handleImageSelection}
                     onClick={handleImageSelection}
-                    rowHeight={190}
+                    rowHeight={300}
                     // maxRows={4}
                     // defaultContainerWidth={100}
                 />
@@ -182,7 +182,7 @@ const ImageSelection = ({ data, windowDimension }) => {
                                             // display : "flex",
                                             // flexDirection:"column",
                                             // width: windowDimension.width> 1000 ? "200px" : windowDimension.width> 700 ? "170px" : "150px",
-                                            height: windowDimension.width> 1000 ? "200px" : windowDimension.width> 700 ? "150px" : windowDimension.width> 500 ? "100px" : windowDimension.width> 500 ? "50px" : "25px",
+                                            height: windowDimension.width> 1000 ? "200px" : windowDimension.width> 700 ? "150px" : windowDimension.width> 500 ? "100px" : "75px",
                                             width: "-webkit-fill-available"
                                         }}
                                         src={require(`../../../public/images/cats_vs_dogs/${imageName}`)} alt="" />
