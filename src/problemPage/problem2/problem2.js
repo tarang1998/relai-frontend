@@ -5,13 +5,8 @@ import './problem2.css';
 const problem2Data = require("../../data/problem2Data.json");
 
 
-const Problem2 = () => {
+const Problem2 = ({windowDimension}) => {
 
-    const [calculatedMetric, setCalculatedMetric] = useState(0);
-
-    const handleMetricOnImageSelection = (value) => {
-        setCalculatedMetric(value);
-    };
 
 
     return (
@@ -22,12 +17,12 @@ const Problem2 = () => {
             <ImageSelection
                 className="image-selection"
                 data={problem2Data}
-                onImageSelection={handleMetricOnImageSelection}
+                windowDimension = {windowDimension}
             />
 
-            <CalculatedMetric 
+            {/* <CalculatedMetric 
             className = "calculated-metric"
-            value={calculatedMetric} />
+            value={calculatedMetric} /> */}
 
 
         </div>

@@ -6,48 +6,61 @@ import { Gallery } from "react-grid-gallery";
 import "./imageSelection.css";
 
 
-const ImageSelection = ({ onImageSelection, data }) => {
+const ImageSelection = ({ data, windowDimension }) => {
 
 
+    const [calculatedMetric, setCalculatedMetric] = useState(0);
+
+    const handleMetricOnImageSelection = (value) => {
+        setCalculatedMetric(value);
+    };
 
 
     const [selectedImages, setSelectedImages] = useState([]);
 
-    const getImages = () => {
+    // const getImages = () => {
 
-        var imageData = []
+    //     var imageData = []
 
-        for (const [key, value] of Object.entries(data)) {
+    //     for (const [key, value] of Object.entries(data)) {
 
-            imageData.push({
-                width :350,
-                height: 350,
-                
-                isSelected: selectedImages.includes(key),
-                src: `images/cats_vs_dogs/${key}`,
-                alt: `${key}-${value}`
-            })
+    //         imageData.push({
+    //             width: 200,
+    //             height: 200,
+
+    //             isSelected: selectedImages.includes(key),
+    //             src: `images/cats_vs_dogs/${key}`,
+    //             alt: `${key}-${value}`
+    //         })
 
 
-        }
+    //     }
 
-        return imageData
+    //     return imageData
 
-    }
+    // }
 
-    const handleImageSelection = (index,image) => {
+    // const handleImageSelection = (index, image) => {
 
-        const imageName = image.src.split("/").pop()
+    //     const imageName = image.src.split("/").pop()
+    //     if (selectedImages.includes(imageName)) {
+    //         setSelectedImages(selectedImages.filter((selected) => selected !== imageName));
+    //     } else {
+    //         setSelectedImages([...selectedImages, imageName]);
+    //     }
+
+
+    // }
+
+    const handleImageSelection2 = (imageName) => {
         if (selectedImages.includes(imageName)) {
             setSelectedImages(selectedImages.filter((selected) => selected !== imageName));
         } else {
             setSelectedImages([...selectedImages, imageName]);
         }
-
-
     }
 
-   
+
 
     const calculateMetric = () => {
 
@@ -89,7 +102,7 @@ const ImageSelection = ({ onImageSelection, data }) => {
 
 
         const metric = selectedImageAverage - nonSelectedImageAverage;
-        onImageSelection(metric);
+        handleMetricOnImageSelection(metric);
     };
 
     React.useEffect(() => {
@@ -98,6 +111,8 @@ const ImageSelection = ({ onImageSelection, data }) => {
 
     return (
         <div className="image-selection">
+
+
 
             <Grid container xs={12} >
 
@@ -111,52 +126,76 @@ const ImageSelection = ({ onImageSelection, data }) => {
                     </Fade>
 
                 </Grid>
+
+                <Grid item xs={12} >
+
+                    <Fade duration={2000}>
+                        <div className='metric-block'>
+                            <div className="metric-title">
+                                Calculated Metric:
+                            </div>
+                            <div className='metric-value'>
+                                {calculatedMetric.toFixed(2)}
+
+                            </div>
+
+                        </div>
+
+                    </Fade>
+
+                </Grid>
+
+
             </Grid>
 
-            <div className="image-selection-container">
-                <Gallery 
-                images={getImages()} 
-                onSelect = {handleImageSelection}
-                onClick = {handleImageSelection}
-                rowHeight = {250}
+
+
+
+            {/* <div className="image-selection-container">
+                <Gallery
+                    images={getImages()}
+                    onSelect={handleImageSelection}
+                    onClick={handleImageSelection}
+                    rowHeight={190}
+                    // maxRows={4}
+                    // defaultContainerWidth={100}
                 />
 
-            </div>
+            </div> */}
 
 
-            {/* <Grid container xs={12} className="image-selection-container">
+            <div className="image-selection-container">
 
                 {Object.keys(data).map((imageName) => (
 
-                    <Grid item xl={4} lg={4} md={4} xs={12}>
+                    <div >
                         <Fade duration={2000}>
 
                             <div key={imageName}>
                                 <div
 
                                     className={`image-container${selectedImages.includes(imageName) ? "-selected" : ""}`}
-                                    onClick={() => toggleImageSelection(imageName)}
+                                    onClick={() => handleImageSelection2(imageName)}
                                 >
                                     <img
                                         style={{
                                             // display : "flex",
                                             // flexDirection:"column",
-                                            // width : "300px",
-                                            height: "350px",
+                                            // width: windowDimension.width> 1000 ? "200px" : windowDimension.width> 700 ? "170px" : "150px",
+                                            height: windowDimension.width> 1000 ? "200px" : windowDimension.width> 700 ? "150px" : windowDimension.width> 500 ? "100px" : windowDimension.width> 500 ? "50px" : "25px",
                                             width: "-webkit-fill-available"
                                         }}
-                                        src={require(`../../data/cats_vs_dogs/${imageName}`)} alt="" />
+                                        src={require(`../../../public/images/cats_vs_dogs/${imageName}`)} alt="" />
                                 </div>
                             </div>
                         </Fade>
 
-                    </Grid>
+                    </div>
 
 
-                ))} 
+                ))}
 
-
-            </Grid> */}
+            </div>
 
         </div>
     );

@@ -10,21 +10,63 @@
     font-size: large;
     font-weight: 900;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
-/* .image-selection-container{
-    padding-left: 100px !important;
-    padding-right: 100px !important;
+/* Metric CSS Values */
 
-} */
+.metric {
+    /* margin-top: 50px; */
+    margin-bottom: 30px;
+    /* padding-left: 100px;
+    padding-right: 150px; */
 
-.image-selection-container .ReactGridGallery div{
+}
+
+
+.image-selection .metric-block {
+    display: inline-flex;
+}
+
+.image-selection .metric-title {
+    font-size: medium;
+    font-weight: 400;
+
+}
+
+.image-selection .metric-value {
+    font-size: large;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+
+
+
+.image-selection-container {
+    margin-top: 30px !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    /* padding-left: 100px !important;
+    padding-right: 100px !important; */
+
+}
+
+
+  
+/* .image-selection-container .ReactGridGallery div {
     justify-content: center;
     align-content: flex-start;
-}
+} */
 
 .image-container {
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
     cursor: pointer;
     position: relative;
     transition: border 0.2s ease;
@@ -33,11 +75,14 @@
 }
 
 .image-container-selected {
-    border: 1px solid #007bff;
+    border: 7px solid #007bff;
 }
 
-/* .image-container img {
+.image-selection-container img {
     max-width: 100%;
     height: auto;
+  }
 
-} */
+
+
+

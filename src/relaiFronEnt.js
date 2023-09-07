@@ -2,12 +2,36 @@ import { Container, Grid } from "@material-ui/core";
 import Header from "./components/Header/header";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Fade from 'react-reveal/Fade';
+import React, { useState, useEffect } from "react";
 import Problem1 from "./problemPage/problem1/problem1";
 import Problem2 from "./problemPage/problem2/problem2";
 
 
 
-function RelaiFrontEnd(props) {
+function RelaiFrontEnd() {
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+
+  function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return windowDimensions;
+  }
 
   return (
     <div >
@@ -27,19 +51,22 @@ function RelaiFrontEnd(props) {
 
                     <Route
                       exact
-                      path = "/"
-                      render = {()=> {
-                        return (<Redirect to="/problem1"/>)
+                      path="/"
+                      render={() => {
+                        return (<Redirect to="/problem1" />)
                       }}>
 
                     </Route>
 
                     <Route path="/problem1">
-                      <Problem1/>
+                      <Problem1
+                        windowDimension={useWindowDimensions()} />
                     </Route>
 
                     <Route path="/problem2">
-                      <Problem2/>
+                      <Problem2
+                      windowDimension = {useWindowDimensions()}
+                        />
                     </Route>
 
 
