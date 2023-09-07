@@ -88,6 +88,11 @@
 
 
 @media (max-width: 960px) {
+
+    .image-selection{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .image-selection-container {
         gap: 2px;
     }
